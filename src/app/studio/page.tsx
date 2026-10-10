@@ -33,6 +33,17 @@ export default function StudioPage() {
               to civic landmarks, I design spaces that prioritize breathability,
               resilience, and inclusivity.
             </p>
+            <div className="mt-16">
+              <p className="mb-4 font-sans text-xs tracking-widest uppercase text-gray-500">
+                Get in Touch
+              </p>
+              <a
+                href="mailto:mwdmacasaquit@mymail.mapua.edu.ph"
+                className="text-lg md:text-xl"
+              >
+                mwdmacasaquit@mymail.mapua.edu.ph
+              </a>
+            </div>
           </div>
         </div>
       </div>
