@@ -2,7 +2,7 @@
 
 import { motion } from "framer-motion";
 import Image from "next/image";
-import TechnicalAccordion from "../../../components/TechnicalAccordion";
+import TechnicalGallery from "../../../components/TechnicalGallery";
 
 type Project = (typeof import("../../../data/projects").projects)[number];
 
@@ -52,7 +52,7 @@ export default function ProjectDetail({ project }: { project: Project }) {
         </p>
       </motion.section>
 
-      {project.elevationImage && (
+      {project.conceptBoardImage && (
         <motion.section
           className="bg-[#f4f4f3] px-6 py-24 text-black md:px-16"
           initial={{ opacity: 0, y: 40 }}
@@ -62,28 +62,28 @@ export default function ProjectDetail({ project }: { project: Project }) {
         >
           <div className="relative aspect-[16/9] w-full overflow-hidden">
             <Image
-              src={project.elevationImage}
-              alt={`${project.title} front elevation`}
+              src={project.conceptBoardImage}
+              alt={`${project.title} concept board`}
               fill
               sizes="100vw"
-              className="object-cover"
+              className="object-contain"
             />
           </div>
           <div className="mt-5 flex justify-between font-sans text-xs tracking-[0.2em] uppercase">
-            <span>01 / Front elevation</span>
-            <span>West facade elevation</span>
+            <span>{project.conceptBoardTitle}</span>
+            <span>{project.conceptBoardSubtitle}</span>
           </div>
         </motion.section>
       )}
 
-      <motion.footer
-        className="px-6 py-32 md:px-16"
-        initial={{ opacity: 0, y: 40 }}
-        whileInView={{ opacity: 1, y: 0 }}
-        viewport={{ once: true, amount: 0.2 }}
-        transition={{ duration: 0.8, ease: "easeOut" }}
-      >
-        {project.hasResearchPaper && (
+      {project.hasResearchPaper && (
+        <motion.footer
+          className="px-6 py-32 md:px-16"
+          initial={{ opacity: 0, y: 40 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true, amount: 0.2 }}
+          transition={{ duration: 0.8, ease: "easeOut" }}
+        >
           <a
             href="/solana-research.pdf"
             download
@@ -92,10 +92,10 @@ export default function ProjectDetail({ project }: { project: Project }) {
           >
             ↓ Download academic research (PDF)
           </a>
-        )}
+        </motion.footer>
+      )}
 
-        <TechnicalAccordion technicalDrawings={project.technicalDrawings} />
-      </motion.footer>
+      <TechnicalGallery technicalDrawings={project.technicalDrawings} />
     </main>
   );
 }

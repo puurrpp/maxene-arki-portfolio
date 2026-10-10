@@ -74,7 +74,7 @@ export default function Home() {
             Academic portfolio / 2026
           </motion.p>
           <motion.h1
-            className="text-6xl md:text-8xl lg:text-[10rem]"
+            className="mb-24 text-[clamp(3.5rem,8vw,8rem)] leading-tight"
             initial={{ opacity: 0, y: 24 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 1, delay: 0.3, ease: [0.22, 1, 0.36, 1] }}
